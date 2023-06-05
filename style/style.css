@@ -1,0 +1,230 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap");
+
+:root {
+  --primary-color: #000;
+  --primary-sub-color: #f2cd5c;
+  --body-bg-color: #000;
+  --radius-25: 25px;
+  --radius-15: 15px;
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  margin: 0px auto;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  /* 배너 상단 고정 */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  /* 요소 중 가장 앞쪽에 배치 */
+  z-index: 999;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--primary-sub-color);
+}
+
+.title {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 35px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.title:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 38px;
+  font-weight: 900;
+}
+
+.logo {
+  width: 60px;
+  padding-right: 10px;
+}
+
+.search-box {
+  width: 100%;
+  height: 600px;
+
+  margin-bottom: 70px;
+
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1680178441861-c9539e92434f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1216&q=80");
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchIp {
+  width: 95%;
+  max-width: 450px;
+  height: 50px;
+  border: none;
+  padding-left: 15px;
+  border-radius: var(--radius-15);
+}
+
+.searchIp:hover {
+  outline: 3px solid var(--primary-sub-color);
+}
+
+.searchIp:focus {
+  outline: 3px solid var(--primary-sub-color);
+}
+
+.searchBtn {
+  margin-left: 15px;
+
+  width: 65px;
+  height: 50px;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-15);
+}
+
+.searchBtn:hover {
+  font-weight: 600;
+  background-color: var(--primary-sub-color);
+}
+
+.movieList {
+  display: grid;
+  /* 창 크기에 자동으로 맞추기 / 카드 1개당 380px (가로) */
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  /* 간격 */
+  grid-gap: 5px;
+  justify-content: center;
+
+  padding-bottom: 90px;
+}
+
+.movie-box {
+  width: 70%;
+  height: 680px;
+  cursor: pointer;
+  border: 5px solid #fff;
+  border-radius: var(--radius-15);
+  background-color: #fff;
+  margin: 30px auto;
+}
+
+.movie-box:hover {
+  border: 5px solid var(--primary-sub-color);
+}
+
+.card-image {
+  width: 95%;
+  height: 100%;
+  margin: 10px 0px 0px 10px;
+  border-radius: var(--radius-15);
+}
+
+.title-box {
+  height: 60px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px 0px 10px;
+}
+
+.card-star {
+  float: right;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.card-text {
+  height: 100px;
+  /* 컨테이너의 길이(100px)를 초과했을 때 스크롤 생성 */
+  overflow: auto;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 15px;
+  color: gray;
+  padding-left: 10px;
+  line-height: 20px;
+}
+
+.arrow {
+  /* 이동 버튼 위치 고정*/
+  position: fixed;
+  bottom: 13px;
+  right: 10px;
+  /* 요소 중 가장 앞쪽에 배치 */
+  z-index: 999;
+  color: #fff;
+  zoom: 2;
+}
+
+.topBtn {
+  cursor: pointer;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  padding-top: 5px;
+  background-color: var(--primary-sub-color);
+  width: 100%;
+  height: 90px;
+}
+
+.footer > p {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.footer > span {
+  color: #454545;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.blogBtn {
+  color: var(--primary-color);
+}
+
+.githubBtn {
+  margin-left: 10px;
+  color: var(--primary-color);
+}
