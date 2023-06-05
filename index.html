@@ -11,10 +11,12 @@
     <script src="https://kit.fontawesome.com/89a032c4e0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/filter.css">
     <script src="src/main.js" defer></script>
     <script src="src/detail.js" defer></script>
     <script src="src/modify.js" defer></script>
     <script src="src/delete.js" defer></script>
+    <script src="src/filter.js" defer></script>
     <!-- 파비콘 넣기 -->
     <link rel="shortcut icon" href="style/assets/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="style/assets/favicon.ico" type="image/x-icon" />
@@ -23,17 +25,28 @@
   </head>
 
   <body>
-    <div class="main">
+    <div class="main"> <!--대문로고(header태그로 변경)-->
       <a href="/"><img class="logo" src="style/assets/icon.png" alt="" /></a>
       <a href="/" class="title">Movies Project</a>
     </div>
-    <div class="arrow">
+    <div class="arrow"> <!--스크롤 위로 이동-->
       <i class="fa-solid fa-circle-arrow-up topBtn" id="topBtn"></i>
     </div>
     <div class="search-box">
       <input type="text" id="searchIp" class="searchIp" placeholder=" 영화 제목을 입력해주세요" />
-      <button id="searchBtn" class="searchBtn">검색</button>
+      <button id="searchBtn" class="searchBtn">검색</button>      
     </div>
+    <!--필터 위치-->
+    <div id="tags">
+      <div class="tag">Action</div>
+      <div class="tag">Adventure</div>
+      <div class="tag">Drama</div>
+      <div class="tag">Comedy</div>
+    </div>
+    <div id="all-btn">
+      <!-- <div class="tag">ALL</div> -->
+    </div>
+
     <section>
       <ul class="movieList"></ul>
     </section>
