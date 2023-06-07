@@ -13,11 +13,11 @@ reviewBtn.addEventListener("click", () => {
   if (!password.value) return alert("비밀번호를 입력해주세요");
   if (!reviewText.value) return alert("내용을 입력해주세요");
   // uuid 사용 선언 (로컬스토리지 키값 고유 id 생성 위해)
-  // const uuid = self.crypto.randomUUID();
-  const reviewId = nickname.value + Math.random().toString().sub(2, 8);
+  const uuid = self.crypto.randomUUID();
+  // const reviewId = nickname.value + Math.random().toString().sub(2, 8);
 
-  localStorage.setItem(reviewId, JSON.stringify(new addReview()));
-  // localStorage.setItem(uuid, JSON.stringify(new addReview()));
+  // localStorage.setItem(reviewId, JSON.stringify(new addReview()));
+  localStorage.setItem(uuid, JSON.stringify(new addReview()));
   // 로컬스토리지는 문자열만 받기 때문에 객체로 변환(=JSON.stringfy)
 
   alert("저장 완료");
