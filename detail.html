@@ -7,14 +7,28 @@
     <title>Document</title>
 
     <script src="./src/detail.js" type="module"></script>
-
+    <!-- jei--------------------------------- -->
+    <script src="./src/Review.js" type="module"></script>
+    <!-- 파비콘 넣기 -->
+    <link rel="shortcut icon" href="style/assets/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="style/assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style/review.css" />
+    <!-- -----------------------------------jei -->
   </head>
   <body>
-
-
     <main id="main"></main>
-    
-
-
+    <!-- jei--------------------------------- -->
+    <div class="review-form">
+      <div class="review-form-data">
+        <div class="review-title">
+          <input type="text" class="nickname" placeholder="닉네임을 입력해주세요" />
+          <input type="password" class="password" placeholder="비밀번호 4자리" maxlength="4" />
+          <button class="review-btn">등록하기</button>
+        </div>
+        <textarea class="review-text" placeholder="후기 내용을 입력해주세요"></textarea>
+      </div>
+    </div>
+    <div class="review-list"></div>
+    <!-- -----------------------------------jei -->
   </body>
 </html>
