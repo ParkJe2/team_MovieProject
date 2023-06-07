@@ -4,7 +4,7 @@ const getMovieDetails = async () => {
   const movieId = urlParameter.get('id');
   const apiKey = '082847f6a26a575e505ad1e6baf0258c';
 
-  // 영화 상세 정보, 출연진 정보, 비디오 정보를 promise.all 병렬로 옴
+  // 영화 상세 정보, 출연진 정보, 비디오 정보를 promise.all 병렬로 동시에 가져옴
   const [movieDetails, credits, videos] = await Promise.all([
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en&api_key=${apiKey}`).then(response => response.json()),
     fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`).then(response => response.json()),
@@ -67,7 +67,7 @@ const detail = ({ title, poster_path, vote_average, overview, release_date, runt
           </div>
           <div class="detail-item">
             <label>감독</label>
-            <span>${director ? director.name : '알 수 없음'}</span>
+            <span>${director}</span>
           </div>
         </div>
         <div class="movie-description">${overview}</div>
