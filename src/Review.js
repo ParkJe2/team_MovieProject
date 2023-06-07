@@ -47,9 +47,17 @@ datas.forEach((x) => {
 
   if (data.movieId === movieId) {
     reviewList.innerHTML += `<div class="list-box">
-    <h5 class="list-title">작성자 : ${data.nickname}</h5>
-    <p class="list-text">작성 내용 : ${data.reviewText}</p>
-    <p class="list-text">작성시간 : ${data.date}</p>
+    <p class="list-text">${data.reviewText}</p>
+    <h5 class="list-title">- ${data.nickname}</h5>
+    <p class="list-time">작성시간 : ${data.date}</p>
     </div>`;
   }
 });
+
+password.addEventListener("keyup", (event) => {
+  if (event.keyCode === 13) {
+    reviewBtn.click();
+  }
+});
+// password에서 Enter키 클릭 시 reviewBtn 클릭 동작 이벤트
+// 엔터키(key code 13)가 입력되었을 경우 reviewBtn 클릭 실행

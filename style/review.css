@@ -1,0 +1,83 @@
+.review-form {
+  border-radius: var(--radius-15);
+  background-color: #434242;
+  width: 40%;
+  height: 280px;
+  margin: 20px 0px 0px 20px;
+  padding-bottom: 215px;
+}
+
+.review-form-data {
+  width: 95%;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.review-title {
+  display: flex;
+  float: right;
+  margin-top: 15px;
+}
+
+.nickname {
+  width: 80%;
+  height: 50px;
+  border: none;
+  padding-left: 15px;
+  border-radius: var(--radius-15);
+}
+
+.password {
+  width: 80%;
+  height: 50px;
+  border: none;
+  margin-left: 20px;
+  padding-left: 15px;
+  border-radius: var(--radius-15);
+}
+
+.review-text {
+  width: 100%;
+  height: 150px;
+  margin-top: 15px;
+  border: none;
+  padding: 15px 0px 0px 15px;
+  border-radius: var(--radius-15);
+}
+
+.review-btn {
+  width: 120px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px;
+  border-radius: var(--radius-15);
+}
+
+.review-list {
+  width: 90%;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.list-box {
+  background-color: var(--primary-sub-color);
+  border-radius: var(--radius-15);
+  margin-bottom: 5px;
+  padding: 15px;
+}
+
+.list-text {
+  font-size: 16px;
+}
+
+.list-title {
+  padding-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.list-time {
+  padding-top: 10px;
+  font-size: 12px;
+}
