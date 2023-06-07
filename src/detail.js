@@ -37,7 +37,7 @@ const detail = ({ title, poster_path, vote_average, overview, release_date, runt
 
   // 유튜브 영상 요소들을 생성
   const youtubeVideoElements = youtubeVideos.map(video => `
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/${video.key}" frameborder="0" allowfullscreen></iframe>
+    <iframe width="800" height="450" src="https://www.youtube.com/embed/${video.key}" frameborder="0" allowfullscreen></iframe>
   `).join('');
 
   // 영화 상세 정보를 화면에 출력
@@ -72,8 +72,8 @@ const detail = ({ title, poster_path, vote_average, overview, release_date, runt
         </div>
         <div class="movie-description">${overview}</div>
         <div class="youtube-videos">${youtubeVideoElements}</div>
-      </div>
-    </div>
+        </div>
+        </div>
   `;
 };
 
