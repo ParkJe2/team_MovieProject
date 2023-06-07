@@ -71,9 +71,9 @@ const detail = ({ title, poster_path, vote_average, overview, release_date, runt
           </div>
         </div>
         <div class="movie-description">${overview}</div>
+        </div>
+        </div>
         <div class="youtube-videos">${youtubeVideoElements}</div>
-        </div>
-        </div>
   `;
 };
 

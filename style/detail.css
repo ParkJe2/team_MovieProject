@@ -66,15 +66,17 @@
 
 .youtube-videos {
   display: flex;
-  
+margin: 0 auto; 
+width: 1200px;
 }
 
-.youtube-videos iframe {
-  
+iframe {
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 500px;
   aspect-ratio: 16 / 9;
+  padding: 15px;
+  margin: 0 auto;
 }
 
 
@@ -87,8 +89,4 @@
   .movie-detail-container {
     flex-direction: row;
   }
-}
-.movie-info, .youtube-videos, .movie-description {
-  max-width: 100%;
-  overflow-wrap: break-word;
 }
