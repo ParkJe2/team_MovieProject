@@ -1,5 +1,3 @@
-
-
 const searchIp = document.querySelector(".searchIp");
 const searchBtn = document.querySelector(".searchBtn");
 const movieList = document.querySelector(".movieList");

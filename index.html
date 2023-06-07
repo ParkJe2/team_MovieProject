@@ -11,11 +11,13 @@
     <script src="https://kit.fontawesome.com/89a032c4e0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/filter.css" />
     <script src="src/Main.js" defer></script>
     <!-- <script src="src/Detail.js" defer></script>
     <script src="src/Modify.js" defer></script>
     <script src="src/Delete.js" defer></script> -->
     <script src="src/Filter.js" defer></script>
+    <script src="src/Sort.js" defer></script>
     <script src="src/Button.js" defer></script>
     <script src="src/Review.js" defer></script>
     <!-- 파비콘 넣기 -->
@@ -37,6 +39,24 @@
       <input type="text" id="searchIp" class="searchIp" placeholder=" 영화 제목을 입력해주세요" />
       <button id="searchBtn" class="searchBtn">검색</button>
     </div>
+
+        <!--필터 위치-->
+        <div id="sort" class="sort-box">
+          <button id="sort-title" class="sort-btn">영화제목 정렬</button> 
+          <button id="sort-id" class="sort-btn">영화ID 정렬</button>
+          <button id="show-all" class="sort-btn">ALL</button>
+          
+        </div>
+        <div id="tags">
+          <div class="tag">Action</div>
+          <div class="tag">Adventure</div>
+          <div class="tag">Drama</div>
+          <div class="tag">Comedy</div>
+        </div>
+        <div id="all-btn">
+        <!-- <div class="tag">ALL</div> -->
+        </div>
+
     <section>
       <ul class="movieList"></ul>
     </section>
