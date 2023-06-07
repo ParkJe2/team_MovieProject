@@ -1,3 +1,5 @@
+
+
 const searchIp = document.querySelector(".searchIp");
 const searchBtn = document.querySelector(".searchBtn");
 const movieList = document.querySelector(".movieList");
@@ -19,18 +21,17 @@ window.addEventListener("load", async () => {
   // { results } {} 사용 시 변수 이름 사용과 동시에 서버에서 받아온 api.json 결과에 results라는 키 값을 가져온다.
 
   results.forEach((result) => {
-    movieList.innerHTML += `<li class="movie-box" onclick="alert('영화 ID : ${result.id}')">
-        <div class="image-box">
-        <img src="https://image.tmdb.org/t/p/original/${result["poster_path"]}" class="card-image" />
-        </div>
-        <div class="title-box">
-          <h5 class="card-title">${result.title}</h5>
-          <p class="card-star">⭐️ ${result["vote_average"]}</p>
-          </div>
-          <p class="card-text">${result.overview}</p>
-  </li>
-    `;
+    movieList.innerHTML += `<li class="movie-box" onclick="showMovieDetails(${result.id})">
+                              <div class="image-box"><img src="https://image.tmdb.org/t/p/original/${result["poster_path"]}" class="card-image" /></div>
+                              <div class="title-box">
+                                <h5 class="card-title">${result.title}</h5>
+                                <p class="card-star">⭐️ ${result["vote_average"]}</p>
+                              </div>
+                              <p class="card-text">${result.overview}</p>
+                            </li>
+                            `;
   });
+
 });
 
 searchBtn.addEventListener("click", async () => {
@@ -53,16 +54,14 @@ searchBtn.addEventListener("click", async () => {
 
   movieList.innerHTML = "";
   searchResult.forEach((result) => {
-    movieList.innerHTML += `<li class="movie-box" onclick="alert('영화 ID : ${result.id}')">
-    <div class="image-box">
-    <img src="https://image.tmdb.org/t/p/original/${result["poster_path"]}" class="card-image" />
-    </div>
-    <div class="title-box">
-      <h5 class="card-title">${result.title}</h5>
-      <p class="card-star">⭐️ ${result["vote_average"]}</p>
-      </div>
-      <p class="card-text">${result.overview}</p>
-</li>
+    movieList.innerHTML += `<li class="movie-box" onclick="showMovieDetails(${result.id})">
+                              <div class="image-box"><img src="https://image.tmdb.org/t/p/original/${result["poster_path"]}" class="card-image" /></div>
+                              <div class="title-box">
+                                <h5 class="card-title">${result.title}</h5>
+                                <p class="card-star">⭐️ ${result["vote_average"]}</p>
+                              </div>
+                              <p class="card-text">${result.overview}</p>
+                            </li>
 `;
   });
 });
@@ -81,3 +80,8 @@ topBtn.onclick = () => {
 // topBtn 클릭 시 상단 이동
 // window.scrollTo() : 문서를 지정된 위치로 스크롤
 // behavior: "smooth" 부드럽게 움직이기
+
+const showMovieDetails = (movieId) => {
+  window.location.href = `detail.html?id=${movieId}`;
+};
+
