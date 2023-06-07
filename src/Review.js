@@ -1,9 +1,10 @@
-const reviewForm = document.querySelector(".review-form");
 const nickname = document.querySelector(".nickname");
 const password = document.querySelector(".password");
 const reviewText = document.querySelector(".review-text");
 const reviewBtn = document.querySelector(".review-btn");
 const reviewList = document.querySelector(".review-list");
+const reviewForm = document.querySelector(".review-form");
+const reviewWriteBtn = document.querySelector(".review-write-btn");
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
 
@@ -12,9 +13,11 @@ reviewBtn.addEventListener("click", () => {
   if (!password.value) return alert("비밀번호를 입력해주세요");
   if (!reviewText.value) return alert("내용을 입력해주세요");
   // uuid 사용 선언 (로컬스토리지 키값 고유 id 생성 위해)
-  const uuid = self.crypto.randomUUID();
+  // const uuid = self.crypto.randomUUID();
+  const reviewId = nickname.value + Math.random().toString().sub(2, 8);
 
-  localStorage.setItem(uuid, JSON.stringify(new addReview()));
+  localStorage.setItem(reviewId, JSON.stringify(new addReview()));
+  // localStorage.setItem(uuid, JSON.stringify(new addReview()));
   // 로컬스토리지는 문자열만 받기 때문에 객체로 변환(=JSON.stringfy)
 
   alert("저장 완료");
@@ -48,10 +51,21 @@ datas.forEach((x) => {
   if (data.movieId === movieId) {
     reviewList.innerHTML += `<div class="list-box">
     <p class="list-text">${data.reviewText}</p>
-    <h5 class="list-title">- ${data.nickname}</h5>
+    <h5 class="list-title">⎯ ${data.nickname}</h5>
     <p class="list-time">작성시간 : ${data.date}</p>
     </div>`;
   }
+});
+
+window.addEventListener("load", () => {
+  reviewForm.style.display = "none";
+});
+
+reviewWriteBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  // review-write-btn 버튼 클릭 시 새로고침 막기
+  reviewForm.style.display = "block";
+  reviewWriteBtn.style.display = "none";
 });
 
 password.addEventListener("keyup", (event) => {

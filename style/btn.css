@@ -5,7 +5,7 @@
 :root {
   --primary-color: #000;
   --primary-sub-color: #f2cd5c;
-  --body-bg-color: #000;
+  --body-bg-color: hsla(250, 13%, 11%, 1);
   --radius-25: 25px;
   --radius-15: 15px;
 }
