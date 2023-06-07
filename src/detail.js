@@ -26,6 +26,7 @@ const getMovieDetails = async () => {
     genres: movieDetails.genres,
     director: director ? director.name : 'Unknown',
     youtubeVideos: youtubeVideos
+    
   });
 };
 
