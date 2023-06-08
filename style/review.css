@@ -64,7 +64,6 @@ body {
 
 .review-btn:hover {
   font-weight: bold;
-  background-color: var(--primary-sub-color);
 }
 
 .review-list {
