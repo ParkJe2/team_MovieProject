@@ -3,12 +3,11 @@ body {
 }
 
 .review-form {
-  border-radius: var(--radius-15);
-  background-color: #fff;
-  width: 35%;
-  height: 280px;
-  margin: 20px 0px 0px 20px;
-  padding-bottom: 215px;
+  border-radius: 10px;
+  background-color: var(--primary-sub-color);
+  max-width: 800px;
+  height: 250px;
+  margin: 0px auto;
 }
 
 .review-form-data {
@@ -24,32 +23,28 @@ body {
 }
 
 .nickname {
-  width: 80%;
-  height: 50px;
+  width: 100%;
+  height: 45px;
   border: none;
   padding-left: 15px;
-  border-radius: var(--radius-15);
-  border: 3px solid var(--primary-color);
+  border-radius: 10px;
 }
 
 .password {
-  width: 80%;
-  height: 50px;
+  width: 100%;
+  height: 45px;
   border: none;
   margin-left: 20px;
   padding-left: 15px;
-  border-radius: var(--radius-15);
-  border: 3px solid var(--primary-color);
+  border-radius: 10px;
 }
 
 .review-text {
   width: 100%;
   height: 150px;
-  margin-top: 15px;
   border: none;
   padding: 15px 0px 0px 15px;
-  border-radius: var(--radius-15);
-  border: 3px solid var(--primary-color);
+  border-radius: 10px;
 }
 
 .nickname .password .review-text:hover {
@@ -57,12 +52,12 @@ body {
 }
 
 .review-btn {
-  width: 120px;
-  height: 50px;
+  width: 150px;
+  height: 45px;
   border: none;
   cursor: pointer;
   margin-left: 15px;
-  border-radius: var(--radius-15);
+  border-radius: 10px;
   background-color: hsla(250, 13%, 11%, 1);
   color: #fff;
 }
@@ -73,16 +68,15 @@ body {
 }
 
 .review-list {
-  width: 90%;
-  margin-top: 10px;
-  margin-left: 20px;
+  max-width: 1200px;
+  margin: 10px auto;
   /* 넓이에 따라 자동 줄바꿈 */
   word-wrap: break-word;
 }
 
 .list-box {
-  background-color: #f4f4f4;
-  border-radius: var(--radius-15);
+  background-color: var(--primary-sub-color);
+  border-radius: 5px;
   margin-bottom: 5px;
   padding: 15px;
 }
@@ -103,12 +97,32 @@ body {
 }
 
 .review-write {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  margin: 20px auto;
 }
 
 .review-write > a {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
-  margin-left: 25px;
+  font-size: 22px;
+}
+
+.arrow {
+  /* 이동 버튼 위치 고정 */
+  position: fixed;
+  bottom: 13px;
+  right: 10px;
+  /* 요소 중 가장 앞쪽에 배치  */
+  z-index: 999;
+  color: #fff;
+  zoom: 2;
+}
+
+.topBtn {
+  cursor: pointer;
 }

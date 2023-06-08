@@ -31,6 +31,9 @@
   justify-content: center;
 
   background-color: var(--primary-sub-color);
+
+  /* 동일 색상 영역 구분 위해 아래 테두리선 추가-jei */
+  border-bottom: 5px solid hsla(250, 13%, 11%, 1);
 }
 
 /* 4. 폰트 설정 */

@@ -14,6 +14,7 @@ reviewBtn.addEventListener("click", () => {
   if (!reviewText.value) return alert("내용을 입력해주세요");
   // uuid 사용 선언 (로컬스토리지 키값 고유 id 생성 위해)
   const uuid = self.crypto.randomUUID();
+  // 닉네임값 + 랜덤키 생성
   // const reviewId = nickname.value + Math.random().toString().sub(2, 8);
 
   // localStorage.setItem(reviewId, JSON.stringify(new addReview()));
@@ -42,10 +43,11 @@ class addReview {
 // console.log(JSON.parse(localStorage.getItem("83fbe2cf-85f2-4feb-8b28-0adc5c56ac36")));
 // console.log(new URLSearchParams(location.search).get("id"));
 
-const datas = Object.keys(localStorage);
-// 로컬스토리지 안에 저장되어 있는 리스트 불러오기
+// const datas = Object.keys(localStorage).map((x) => x);
+// console.log(datas);
+// 로컬스토리지 안에 저장되어 있는 리스트 키 불러오기
 
-datas.forEach((x) => {
+Object.keys(localStorage).forEach((x) => {
   const data = JSON.parse(localStorage.getItem(x));
 
   if (data.movieId === movieId) {
@@ -75,3 +77,10 @@ password.addEventListener("keyup", (event) => {
 });
 // password에서 Enter키 클릭 시 reviewBtn 클릭 동작 이벤트
 // 엔터키(key code 13)가 입력되었을 경우 reviewBtn 클릭 실행
+
+topBtn.onclick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+// topBtn 클릭 시 상단 이동
+// window.scrollTo() : 문서를 지정된 위치로 스크롤
+// behavior: "smooth" 부드럽게 움직이기

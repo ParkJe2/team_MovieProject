@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Movies Project</title>
 
     <script src="./src/detail.js" type="module"></script>
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/detail.css" />
+    <link rel="stylesheet" href="./style/btn.css" />
     <link rel="stylesheet" href="style/btn.css" />
     <!-- jei--------------------------------- -->
     <script src="./src/review.js" type="module"></script>
@@ -21,12 +24,18 @@
     <!-- -----------------------------------jei -->
   </head>
   <body>
-    <main id="main"></main>
     <div class="button">
       <a href="/"><img class="logo" src="style/assets/icon.png" alt="" /></a>
       <a href="/" class="title">Movies Project</a>
     </div>
+
+    <main id="main"></main>
+
     <!-- jei--------------------------------- -->
+    <div class="arrow">
+      <i class="fa-solid fa-circle-arrow-up topBtn" id="topBtn"></i>
+    </div>
+
     <div class="review-form">
       <div class="review-form-data">
         <textarea class="review-text" placeholder="내용을 입력해주세요"></textarea>
@@ -38,7 +47,7 @@
       </div>
     </div>
     <div class="review-write">
-      <a href="" class="review-write-btn">리뷰 작성하기<i class="fa-sharp fa-regular fa-pen-to-square"></i></a>
+      <a href="" class="review-write-btn">영화 리뷰 작성하기 <i class="fa-sharp fa-regular fa-pen-to-square"></i></a>
     </div>
     <div class="review-list"></div>
     <!-- -----------------------------------jei -->
