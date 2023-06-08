@@ -13,8 +13,8 @@ TMDB API를 이용한 영화 정보 검색 사이트입니다.
 - 팀원4 : 이예지 - 상세 페이지에서 홈으로 이동하는 UI 및 기능 구현 (button.js, btn.css)
 
 ## 🎬 페이지 스크린샷
-* ![Screenshot](./style/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B71.png)
-* ![Screenshot](./style/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B72.png)
+![Screenshot](./style/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B71.png)
+![Screenshot](./style/assets/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B72.png)
 
 ### ⚙️ 사용하는 기술
 - HTML, CSS, JavaScript
