@@ -213,7 +213,11 @@ body {
   justify-content: center;
   margin-top: 10px;
 }
-
+.linkbox {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
 .link {
   display: flex;
   justify-content: center;
