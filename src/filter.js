@@ -89,58 +89,24 @@ function setGenre() {
     t.classList.add("tag");
     t.id = genre.id;
     t.innerText = genre.name;
-    
-    t.addEventListener("click", () => { //모든걸 remove tag. querySelectAll("tag")
+
+    t.addEventListener("click", () => {
+      //모든걸 remove tag. querySelectAll("tag")
 
       if (selectedGenre.length === 0) {
         selectedGenre = genre.id;
-        t.classList.add("tag-highlight")
+        t.classList.add("tag-highlight");
       } else {
-        document.querySelector(".tag-highlight").classList.remove("tag-highlight")       
+        document.querySelector(".tag-highlight").classList.remove("tag-highlight");
         selectedGenre = genre.id;
-        t.classList.add("tag-highlight")
-        console.log(selectedGenre)        
-      }      
-  });
+        t.classList.add("tag-highlight");
+      }
+      console.log(selectedGenre);
+    });
     tagsE1.append(t);
   });
 
-
-
-  // 내가 했던 배열을 사용하는 방식은 여러 필터를 선택할 때 쓰는 방식임.
-  // let selectedGenre = []
-  // tagsE1.innerHTML = "";
-  // genres.forEach((genre) => {
-  //   const t = document.createElement("div");
-  //   t.classList.add("tag");
-  //   t.id = genre.id;
-  //   t.innerText = genre.name;
-    
-  //   t.addEventListener("click", () => { //모든걸 remove tag. querySelectAll("tag")
-      
-  //     if (selectedGenre.length === 0) {
-  //       selectedGenre.push(genre.id);
-  //       t.classList.add("tag2")
-
-        
-  //     } else if (selectedGenre.includes(genre.id)) {
-  //       alert("이미 선택한 장르입니다!");
-  //     } else {
-  //       const previousSelectedGenre = document.querySelector(".tag2")
-  //       previousSelectedGenre.classList.remove("tag2")
-  //       selectedGenre.splice(0);
-  //       selectedGenre.push(genre.id);
-  //       t.classList.add("tag2")        
-  //     }      
-  //   });
-  //   tagsE1.append(t);
-  // });
-
-
-
-  
   tagsE1.addEventListener("click", async function () {
-    movieList.innerHTML = "";
     const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
       method: "GET",
       headers: {
@@ -149,22 +115,43 @@ function setGenre() {
       },
     });
     const { results } = await api.json();
-      let selectedEL = results.filter((val) => val["genre_ids"].includes(selectedGenre));
-      // if (results.filter((val) => val["genre_ids"].indexOf(selectedGenre[i])) !== 0) {
-      selectedEL.forEach((result) => {
-        movieList.innerHTML += `<li class="movie-box" onclick="alert('영화 ID : ${result.id}')">
-                                  <div class="image-box">
-                                  <img src="https://image.tmdb.org/t/p/original/${result["poster_path"]}" class="card-image" />
-                                  </div>
-                                  <div class="title-box">
-                                    <h5 class="card-title">${result.title}</h5>
-                                    <p class="card-star">⭐️ ${result["vote_average"]}</p>
-                                    </div>
-                                    <p class="card-text">${result.overview}</p>
-                                </li>
-                                    `;
-      });
-      //}
-    }
-  );
+    let selectedEL = results.filter((val) => val["genre_ids"].includes(selectedGenre));
+    // if (results.filter((val) => val["genre_ids"].indexOf(selectedGenre[i])) !== 0) {
+    showMovies(selectedEL);
+  });
+}
+
+showAll();
+function showAll() {
+  document.querySelector("#show-all").addEventListener("click", async () => {
+    const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTk2ZGJlN2Y4M2EyOTlhNDNkYTY1OTU3Y2U3YzFkYyIsInN1YiI6IjY0NzBiYjAwNzI2ZmIxMDE0NGU2MjgwZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xX1FH_36KZ8QkDBdbs8u5Bl3YZt32lyDNMGaNLcVz5E",
+      },
+    });
+
+    const { results } = await api.json();
+
+    deleteHighlight();
+
+    showMovies(results);
+  });
+}
+
+//브라우저에 list해주는 함수 shoMovies(data)
+function showMovies(data) {
+  movieList.innerHTML = "";
+  data.forEach((result) => {
+    movieList.innerHTML += `<li class="movie-box" onclick="showMovieDetails(${result.id})">
+                              <div class="image-box"><img src="https://image.tmdb.org/t/p/original/${result["poster_path"]}" class="card-image" /></div>
+                              <div class="title-box">
+                                <h5 class="card-title">${result.title}</h5>
+                                <p class="card-star">⭐️ ${result["vote_average"]}</p>
+                              </div>
+                              <p class="card-text">${result.overview}</p>
+                            </li>
+                        `;
+  });
 }
