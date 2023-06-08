@@ -30,7 +30,7 @@ const getMovieDetails = async () => {
   });
 };
 
-// 영화 상세 정보를 화면에 출력하는 함수
+// 영화 상세 정보를 화면에 출력하는 함수!
 // 위에서 구조분해할당 사용하여 객체에서 필요한 속성들을 추출해온걸 매개변수로 넣어줌
 const detail = ({ title, poster_path, vote_average, overview, release_date, runtime, genres, director, youtubeVideos }) => {
   const genre = genres[0]?.name || 'Unknown';  // (옵셔널 체이닝 연산자 사용) genres배열의 0번째 요소에 접근 || 해당요소 없을시 unknown 할당
