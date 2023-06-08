@@ -1,5 +1,3 @@
-
-
 const searchIp = document.querySelector(".searchIp");
 const searchBtn = document.querySelector(".searchBtn");
 const movieList = document.querySelector(".movieList");
@@ -10,7 +8,7 @@ window.addEventListener("load", async () => {
   // 페이지 로딩 시 포커스 input으로 이동
   // + 다른방법) html input 태그에 autofocus 추가하기
 
-  const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+  const api = await fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
     method: "GET",
     headers: {
       accept: "application/json",
@@ -31,7 +29,6 @@ window.addEventListener("load", async () => {
                             </li>
                             `;
   });
-
 });
 
 searchBtn.addEventListener("click", async () => {
@@ -84,4 +81,3 @@ topBtn.onclick = () => {
 const showMovieDetails = (movieId) => {
   window.location.href = `detail.html?id=${movieId}`;
 };
-
