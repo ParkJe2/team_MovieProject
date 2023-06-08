@@ -6,14 +6,14 @@
   justify-content: center;
   align-items: center;
   margin: 0px auto;
-
+  margin-bottom: 50px;
 }
 
 .tag {
   color: black;
   padding: 15px 25px;
   background-color: var(--primary-sub-color);
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 5px;
   display: inline-block;
   cursor: pointer;
@@ -25,7 +25,7 @@
   transform: scale(1.2);
   border: 3px solid white;
   color: whitesmoke;
-  font-weight:bold;
+  font-weight: bold;
 }
 .tag:hover {
   background-color: rgb(61, 21, 21);
@@ -33,7 +33,7 @@
   transition-duration: 0.4s;
   border: 3px solid white;
   color: whitesmoke;
-  font-weight:bold; 
+  font-weight: bold;
 }
 
 .sort-box {
@@ -49,12 +49,14 @@
   color: black;
   padding: 10px 20px;
   background-color: var(--primary-sub-color);
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 10px;
   margin-bottom: 3rem;
   display: inline-block;
   cursor: pointer;
   font-weight: bold;
+  border: none;
+  height: 45px;
 }
 
 .sort-btn:hover {
@@ -65,4 +67,3 @@
   color: whitesmoke;
   font-weight: bold;
 }
-
