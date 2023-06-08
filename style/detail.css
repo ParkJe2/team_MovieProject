@@ -11,7 +11,6 @@
   margin: 0 auto;
   margin-top: 80px;
   max-width: 1200px;
-
 }
 
 .movie-poster {
@@ -24,7 +23,6 @@
   border-radius: 10px;
   object-fit: cover;
 }
-
 
 .movie-info {
   flex: 2;
@@ -66,6 +64,7 @@
 
 .youtube-videos {
   display: flex;
+
 margin: 0 auto; 
 width: 1200px;
 }
@@ -91,4 +90,3 @@ iframe {
     flex-direction: row;
   }
 }
-

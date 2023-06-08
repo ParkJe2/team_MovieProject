@@ -1,8 +1,8 @@
 // 영화 상세 정보를 가져오는 함수
 const getMovieDetails = async () => {
   const urlParameter = new URLSearchParams(window.location.search);
-  const movieId = urlParameter.get('id');
-  const apiKey = '082847f6a26a575e505ad1e6baf0258c';
+  const movieId = urlParameter.get("id");
+  const apiKey = "082847f6a26a575e505ad1e6baf0258c";
 
   // 영화 상세 정보, 출연진 정보, 비디오 정보를 promise.all 병렬로 동시에 가져옴
   // 여러개의 비동기 작업을 처리하기 위해 사용
@@ -33,7 +33,7 @@ const getMovieDetails = async () => {
 // 영화 상세 정보를 화면에 출력하는 함수
 // 위에서 구조분해할당 사용하여 객체에서 필요한 속성들을 추출해온걸 매개변수로 넣어줌
 const detail = ({ title, poster_path, vote_average, overview, release_date, runtime, genres, director, youtubeVideos }) => {
-  const genre = genres[0]?.name || 'Unknown';  // (옵셔널 체이닝 연산자 사용) genres배열의 0번째 요소에 접근 || 해당요소 없을시 unknown 할당
+const genre = genres[0]?.name || 'Unknown';  // (옵셔널 체이닝 연산자 사용) genres배열의 0번째 요소에 접근 || 해당요소 없을시 unknown 할당
 
   document.title = title;
 

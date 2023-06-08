@@ -1,0 +1,113 @@
+body {
+  background-color: hsla(250, 13%, 11%, 1);
+}
+
+.review-form {
+  border-radius: 10px;
+  background-color: var(--primary-sub-color);
+  max-width: 800px;
+  height: 250px;
+  margin: 0px auto;
+}
+
+.review-form-data {
+  width: 95%;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.review-title {
+  display: flex;
+  float: right;
+  margin-top: 15px;
+}
+
+.nickname {
+  width: 100%;
+  height: 45px;
+  border: none;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
+.password {
+  width: 100%;
+  height: 45px;
+  border: none;
+  margin-left: 20px;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
+.review-text {
+  width: 100%;
+  height: 150px;
+  border: none;
+  padding: 15px 0px 0px 15px;
+  border-radius: 10px;
+}
+
+.nickname .password .review-text:hover {
+  border: 3px solid var(--primary-sub-color);
+}
+
+.review-btn {
+  width: 150px;
+  height: 45px;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px;
+  border-radius: 10px;
+  background-color: hsla(250, 13%, 11%, 1);
+  color: #fff;
+}
+
+.review-btn:hover {
+  font-weight: bold;
+  background-color: var(--primary-sub-color);
+}
+
+.review-list {
+  max-width: 1200px;
+  margin: 10px auto;
+  /* 넓이에 따라 자동 줄바꿈 */
+  word-wrap: break-word;
+}
+
+.list-box {
+  background-color: var(--primary-sub-color);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 15px;
+}
+
+.list-text {
+  font-size: 16px;
+}
+
+.list-title {
+  padding-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.list-time {
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.review-write {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  margin: 20px auto;
+}
+
+.review-write > a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 22px;
+}
