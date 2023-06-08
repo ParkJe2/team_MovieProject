@@ -111,18 +111,3 @@ body {
   color: #fff;
   font-size: 22px;
 }
-
-.arrow {
-  /* 이동 버튼 위치 고정 */
-  position: fixed;
-  bottom: 13px;
-  right: 10px;
-  /* 요소 중 가장 앞쪽에 배치  */
-  z-index: 999;
-  color: #fff;
-  zoom: 2;
-}
-
-.topBtn {
-  cursor: pointer;
-}
