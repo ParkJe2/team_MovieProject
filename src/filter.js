@@ -35,22 +35,22 @@ const genres = [
     id: 14,
     name: "Fantasy",
   },
-  {
-    id: 36,
-    name: "History",
-  },
   // {
-  //   id: 27,
-  //   name: "Horror",
+  //   id: 36,
+  //   name: "History",
   // },
+  {
+    id: 27,
+    name: "Horror",
+  },
   // {
   //   id: 10402,
   //   name: "Music",
   // },
-  // {
-  //   id: 9648,
-  //   name: "Mystery",
-  // },
+  {
+    id: 9648,
+    name: "Mystery",
+  },
   {
     id: 10749,
     name: "Romance",
@@ -71,10 +71,10 @@ const genres = [
     id: 10752,
     name: "War",
   },
-  {
-    id: 37,
-    name: "Western",
-  },
+  // {
+  //   id: 37,
+  //   name: "Western",
+  // },
 ];
 
 let selectedGenre = "";
@@ -107,7 +107,7 @@ function setGenre() {
   });
 
   tagsE1.addEventListener("click", async function () {
-    const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+    const api = await fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
       method: "GET",
       headers: {
         accept: "application/json",
@@ -124,7 +124,7 @@ function setGenre() {
 showAll();
 function showAll() {
   document.querySelector("#show-all").addEventListener("click", async () => {
-    const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+    const api = await fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
       method: "GET",
       headers: {
         accept: "application/json",

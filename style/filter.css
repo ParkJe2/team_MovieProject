@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   margin: 0px auto;
-
+  margin-bottom: 50px;
 }
 
 .tag {
@@ -20,6 +20,7 @@
   max-width: 11rem;
   justify-self: center;
 }
+
 .tag-highlight {
   background-color: rgb(116, 33, 0);
   transform: scale(1.2);
@@ -27,6 +28,7 @@
   color: whitesmoke;
   font-weight:bold;
 }
+
 .tag:hover {
   background-color: rgb(61, 21, 21);
   transform: scale(1.2);
@@ -49,12 +51,14 @@
   color: black;
   padding: 10px 20px;
   background-color: var(--primary-sub-color);
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 10px;
   margin-bottom: 3rem;
   display: inline-block;
   cursor: pointer;
   font-weight: bold;
+  border: none;
+  height: 45px
 }
 
 .sort-btn:hover {

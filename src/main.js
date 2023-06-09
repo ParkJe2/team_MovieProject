@@ -10,7 +10,7 @@ window.addEventListener("load", async () => {
   // 페이지 로딩 시 포커스 input으로 이동
   // + 다른방법) html input 태그에 autofocus 추가하기
 
-  const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+  const api = await fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
     method: "GET",
     headers: {
       accept: "application/json",
@@ -38,7 +38,7 @@ searchBtn.addEventListener("click", async () => {
   if (!searchIp.value) return alert("영화 제목을 입력해주세요");
   // 빈 값인 상태에서 검색 버튼 클릭 시 알럿 실행 후 종료
 
-  const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+  const api = await fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
     method: "GET",
     headers: {
       accept: "application/json",

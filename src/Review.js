@@ -7,19 +7,23 @@ const reviewForm = document.querySelector(".review-form");
 const reviewWriteBtn = document.querySelector(".review-write-btn");
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
+// uuid 사용 선언 (로컬스토리지 고유 id 생성 위해)
+const uuId = window.crypto.randomUUID();
 
+// (2) reviewCollection 변수는 로컬스토리지 배열형식으로 가져옴. 로컬스토리지가 비어있으면 빈 배열 할당 [] 
+ const reviewCollection = localStorage.getItem('review') ? JSON.parse(localStorage.getItem('review')) : []
+
+
+// (5) 등록버튼 클릭시 validation 거친 후 addCollection실행
 reviewBtn.addEventListener("click", () => {
   if (!nickname.value) return alert("닉네임을 입력해주세요");
   if (!password.value) return alert("비밀번호를 입력해주세요");
   if (!reviewText.value) return alert("내용을 입력해주세요");
-  // uuid 사용 선언 (로컬스토리지 키값 고유 id 생성 위해)
-  const uuid = self.crypto.randomUUID();
-  // 닉네임값 + 랜덤키 생성
-  // const reviewId = nickname.value + Math.random().toString().sub(2, 8);
 
-  // localStorage.setItem(reviewId, JSON.stringify(new addReview()));
-  localStorage.setItem(uuid, JSON.stringify(new addReview()));
-  // 로컬스토리지는 문자열만 받기 때문에 객체로 변환(=JSON.stringfy)
+let addReviewData = new addReview();
+  addCollection(addReviewData)
+  // localStorage.setItem("review", JSON.stringify(new addReview()));
+  // 로컬스토리지는 문자열만 받기 때문에 객체로 변환(=JSON.stringify)
 
   alert("저장 완료");
   window.location.reload();
@@ -27,6 +31,13 @@ reviewBtn.addEventListener("click", () => {
   // console.log(new addReview());
 });
 
+// (3) addReview객체를 로컬스토리지에 push하는 함수. addReviewData는 new addReview를 담은 변수
+function addCollection(addReviewData) {
+  reviewCollection.push(addReviewData)
+  localStorage.setItem('review', JSON.stringify(reviewCollection))
+}
+
+// (1) 리뷰 댓글 객체로 데이터화
 class addReview {
   constructor() {
     this.movieId = new URLSearchParams(location.search).get("id");
@@ -35,32 +46,141 @@ class addReview {
     this.password = password.value;
     this.reviewText = reviewText.value;
     this.date = new Date().toLocaleString("ko-KR");
+    this.reviewId = uuId
     // 현재 날짜 및 시간을 한국 기준으로 가져오기
   }
 } // class 객체 생성하여 가져가서 쓰기
 // class 실행 시 앞에 new를 붙여줘야 함
 
-// console.log(JSON.parse(localStorage.getItem("83fbe2cf-85f2-4feb-8b28-0adc5c56ac36")));
-// console.log(new URLSearchParams(location.search).get("id"));
-
-// const datas = Object.keys(localStorage).map((x) => x);
-// console.log(datas);
-// 로컬스토리지 안에 저장되어 있는 리스트 키 불러오기
-
-Object.keys(localStorage).forEach((x) => {
-  const data = JSON.parse(localStorage.getItem(x));
-
+// (4) 로컬스토리지 데이터 브라우저에 보여주기
+ function displayReviews() {
+  //console.log("reviewCollection는", reviewCollection)
+  reviewCollection.forEach((data) => {
   if (data.movieId === movieId) {
     reviewList.innerHTML += `<div class="list-box">
-    <p class="list-text">${data.reviewText}</p>
-    <h5 class="list-title">⎯ ${data.nickname}</h5>
-    <p class="list-time">작성시간 : ${data.date}</p>
-    </div>`;
+                              <div class="input-controller">
+                              <textarea disabled class="list-text" >${data.reviewText}</textarea>
+                              </div>
+                              <h5 class="list-title">- ${data.nickname}</h5>
+                              <p class="list-time">작성시간 : ${data.date}</p>
+                              <div class="delete-update-container">
+                                <i class='fa-solid fa-trash-can deleteBtn' id="${data.reviewId}"></i>
+                                <i class='fa-solid fa-pen-to-square editBtn' id="${data.reviewId}"></i>
+                              <div class="update-controller">
+                                <button class='saveBtn updateBtn' id="${data.reviewId}">Save</button>
+                                <button class='cancelBtn updateBtn'>Cancel</button>
+                              </div>
+                              </div>
+                              </div>`;
   }
 });
+activateDeleteReview()
+activateEditReview()
+activateSaveReview()
+activateCancelReview()
+}
+
+/*===============================수정삭제 함수=================================*/
+//(6) 삭제 버튼
+ function activateDeleteReview() {
+  let deleteBtn = document.querySelectorAll(".deleteBtn")
+  deleteBtn.forEach((toDelete) => {
+    toDelete.addEventListener('click', () => { 
+      const pw = prompt('비밀번호를 입력하세요')
+      reviewCollection.forEach((reviewData) => {
+        if (reviewData.reviewId === toDelete.id) {
+          //indexOf로 위 if조건을 충족하는 reviewCollection의 인덱스넘버를 가져옴. 왜냐하면 각 댓글의 index와 로컬스토리지 상 index가 다르기 때문.
+          let idx = reviewCollection.indexOf(reviewData)
+          if (reviewData.password === pw) {
+            if(!confirm("정말로 삭제하시겠습니까?")) {
+              alert("삭제를 취소했습니다.")
+            } else {
+              alert("삭제하였습니다.")
+              deleteReview(idx)
+            }
+          } else {
+            alert("잘못된 비밀번호입니다.")
+          }   
+        }        
+      })
+    })
+  })
+}
+//(6) 삭제 구현 함수
+function deleteReview(idx) {
+  reviewCollection.splice(idx, 1)
+  localStorage.setItem('review', JSON.stringify(reviewCollection))
+  window.location.reload()
+}
+
+//(7) 수정 버튼
+ function activateEditReview() {
+  const editBtn = document.querySelectorAll('.editBtn')
+  const updateController = document.querySelectorAll('.update-controller')
+  const inputs = document.querySelectorAll('.input-controller textarea')
+  editBtn.forEach((toEdit, i) => {
+    toEdit.addEventListener('click', () => {
+      const pw = prompt('비밀번호를 입력하세요')
+      reviewCollection.forEach((reviewData) => {
+        if (reviewData.reviewId === toEdit.id) {
+          if (reviewData.password === pw) {
+      updateController[i].style.display = 'block'
+      inputs[i].disabled = false;
+    } else {
+      alert("잘못된 비밀번호입니다.")
+    }
+    }})
+  })
+})}
+
+//(8) 수정 저장
+ function activateSaveReview() {
+  const saveBtn = document.querySelectorAll('.saveBtn')
+  
+  
+  saveBtn.forEach((toSave, i) => {
+    toSave.addEventListener('click', () => {
+      const inputs = document.querySelectorAll('.input-controller textarea')
+      reviewCollection.forEach((saveData) => {
+        if (saveData.reviewId === toSave.id) {
+        let idx = reviewCollection.indexOf(saveData)
+        console.log("인풋이 ", inputs)
+        console.log("[idx] ", [idx])
+        console.log("i ", i)
+        console.log("인풋이[idx] ", inputs[idx])
+        console.log("인풋이[i] ", inputs[i])
+        updateReview(inputs[i].value, idx)
+      }
+      })      
+    })
+  })
+}
+
+//(9) 수정 실행 함수
+function updateReview(text, idx) {
+  reviewCollection[idx].reviewText = text
+  localStorage.setItem('review', JSON.stringify(reviewCollection))
+  //location.reload()
+}
+
+//(10) 취소 버튼
+ function activateCancelReview() {
+  const cancelBtn = document.querySelectorAll('.cancelBtn')
+  const updateController= document.querySelectorAll('.update-controller')
+  const inputs = document.querySelectorAll('.input-controller textarea')
+  cancelBtn.forEach((toCancel, idx) => {
+    toCancel.addEventListener('click', () => {
+      updateController[idx].style.display = 'none'
+      inputs[idx].disabled = true
+      location.reload()
+    })
+  })
+}
+/*===============================수정삭제 함수=================================*/
 
 window.addEventListener("load", () => {
   reviewForm.style.display = "none";
+  displayReviews();
 });
 
 reviewWriteBtn.addEventListener("click", (event) => {

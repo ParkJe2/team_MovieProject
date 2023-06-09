@@ -2,7 +2,7 @@ sortByTitle();
 
 function sortByTitle() {
   document.querySelector("#sort-title").addEventListener("click", async () => {
-    const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+    const api = await fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
       method: "GET",
       headers: {
         accept: "application/json",
@@ -26,7 +26,7 @@ function sortByTitle() {
 sortById();
 function sortById() {
   document.querySelector("#sort-id").addEventListener("click", async () => {
-    const api = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", {
+    const api = await fetch("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1", {
       method: "GET",
       headers: {
         accept: "application/json",

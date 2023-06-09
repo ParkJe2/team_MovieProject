@@ -81,7 +81,21 @@ body {
 }
 
 .list-text {
+  padding: 3px 0px 0px 10px;
   font-size: 16px;
+  resize: none;
+  background-color: #eece6f;
+  color: var(--primary-color);
+  border:1px solid var(--primary-color);
+  border-radius: 5px;
+  width: 100%;
+
+}
+
+.list-text:focus {
+  box-shadow: 0 0 10px white;
+  border:2px solid var(--primary-color);
+  background-color: transparent;
 }
 
 .list-title {
@@ -110,3 +124,34 @@ body {
   color: #fff;
   font-size: 22px;
 }
+
+/*====삭제수정 Style====*/
+.delete-update-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.update-controller {
+  display: none;
+  margin-left: 1rem;
+}
+
+.editBtn {
+  margin-left: 1rem;
+}
+
+.fa-solid {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.updateBtn {
+  height: fit-content;
+  cursor: pointer;
+  color: var(--primary-sub-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 15px;
+}
+/*====삭제수정 Style====*/
