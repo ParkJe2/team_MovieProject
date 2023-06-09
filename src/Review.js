@@ -53,25 +53,27 @@ class addReview {
 // class 실행 시 앞에 new를 붙여줘야 함
 
 // (4) 로컬스토리지 데이터 브라우저에 보여주기
+
  function displayReviews() {
+  const sortedReviews = reviewCollection.sort((a,b) => new Date(b.date) - new Date(a.date))
   //console.log("reviewCollection는", reviewCollection)
-  reviewCollection.forEach((data) => {
-  if (data.movieId === movieId) {
-    reviewList.innerHTML += `<div class="list-box">
-                              <div class="input-controller">
-                              <textarea disabled class="list-text" >${data.reviewText}</textarea>
-                              </div>
-                              <h5 class="list-title">- ${data.nickname}</h5>
-                              <p class="list-time">작성시간 : ${data.date}</p>
-                              <div class="delete-update-container">
-                                <i class='fa-solid fa-trash-can deleteBtn' id="${data.reviewId}"></i>
-                                <i class='fa-solid fa-pen-to-square editBtn' id="${data.reviewId}"></i>
-                              <div class="update-controller">
-                                <button class='saveBtn updateBtn' id="${data.reviewId}">Save</button>
-                                <button class='cancelBtn updateBtn'>Cancel</button>
-                              </div>
-                              </div>
-                              </div>`;
+  sortedReviews.forEach((data) => {
+    if (data.movieId === movieId) {
+      reviewList.innerHTML = `<div class="list-box">
+                                <div class="input-controller">
+                                <textarea disabled class="list-text" >${data.reviewText}</textarea>
+                                </div>
+                                <h5 class="list-title">- ${data.nickname}</h5>
+                                <p class="list-time">작성시간 : ${data.date}</p>
+                                <div class="delete-update-container">
+                                  <i class='fa-solid fa-trash-can deleteBtn' id="${data.reviewId}"></i>
+                                  <i class='fa-solid fa-pen-to-square editBtn' id="${data.reviewId}"></i>
+                                <div class="update-controller">
+                                  <button class='saveBtn updateBtn' id="${data.reviewId}">Save</button>
+                                  <button class='cancelBtn updateBtn'>Cancel</button>
+                                </div>
+                                </div>
+                                </div>` + reviewList.innerHTML;
   }
 });
 activateDeleteReview()
