@@ -1,5 +1,3 @@
-
-
 const searchIp = document.querySelector(".searchIp");
 const searchBtn = document.querySelector(".searchBtn");
 const movieList = document.querySelector(".movieList");
@@ -31,7 +29,6 @@ window.addEventListener("load", async () => {
                             </li>
                             `;
   });
-
 });
 
 searchBtn.addEventListener("click", async () => {
@@ -84,4 +81,3 @@ topBtn.onclick = () => {
 const showMovieDetails = (movieId) => {
   window.location.href = `detail.html?id=${movieId}`;
 };
-
