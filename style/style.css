@@ -219,13 +219,14 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  margin-bottom: 5px;
 }
 .linkbox {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   width: 50%;
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
 }
 
 .link {
